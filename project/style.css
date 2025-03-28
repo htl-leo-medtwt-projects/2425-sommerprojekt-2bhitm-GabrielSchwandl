@@ -4,14 +4,22 @@ body {
 nav {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    background-color: red;
+    background-color: #D83C3C;
     background-size: cover;
 }
 img {
-    width: 30%;
+    width: 25%;
     height: 10vh;
 }
 .pics {
     width: 30%;
     height: 30vh;
+    margin: 1%;
+}
+#darmode {
+    background-image: url(./img/moon.webp);
+    background-size: cover;
+}
+#levels {
+    margin: 3%;
 }
