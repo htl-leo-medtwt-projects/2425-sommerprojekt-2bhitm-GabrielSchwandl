@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+}
+nav {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    background-color: red;
+    background-size: cover;
+}
+img {
+    width: 30%;
+    height: 10vh;
+}
+.pics {
+    width: 30%;
+    height: 30vh;
+}
