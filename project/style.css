@@ -16,9 +16,11 @@ img {
     height: 30vh;
     margin: 1%;
 }
-#darmode {
+#darkmode {
     background-image: url(./img/moon.webp);
-    background-size: cover;
+    background-size: contain;
+    margin-right: 75%;
+    margin-bottom: 1.5%;
 }
 #levels {
     margin: 3%;
