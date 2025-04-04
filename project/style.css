@@ -1,10 +1,17 @@
+:root {
+    --color-main: #D83C3C;
+    --color-darker: #b21919;
+    --color-darkmode: #2E2E2E;
+}
+
 body {
     margin: 0;
+    
 }
 nav {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    background-color: #D83C3C;
+    background-color: var(--color-main);
     background-size: cover;
 }
 img {
