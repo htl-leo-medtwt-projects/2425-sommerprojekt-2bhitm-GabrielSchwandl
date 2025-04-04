@@ -1,12 +1,12 @@
 :root {
     --color-main: #D83C3C;
     --color-darker: #b21919;
-    --color-darkmode: #2E2E2E;
+    --color-bg: #ffffff;
 }
 
 body {
     margin: 0;
-    
+    background-color: var(--color-bg);
 }
 nav {
     display: grid;
@@ -18,6 +18,7 @@ img {
     width: 25%;
     height: 10vh;
 }
+
 .pics {
     width: 30%;
     height: 30vh;

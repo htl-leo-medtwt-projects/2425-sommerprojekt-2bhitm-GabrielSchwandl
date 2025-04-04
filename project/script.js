@@ -1,5 +1,5 @@
 let lvls = document.getElementById('levels');
-
+let root = document.querySelector(':root');
 
 function showAllLevels() {
     let string = '';
@@ -13,5 +13,5 @@ function showAllLevels() {
 }
 showAllLevels();
 function goingDark() {
-    
+    root.style.setProperty('--color-bg', '#2E2E2E');
 }
