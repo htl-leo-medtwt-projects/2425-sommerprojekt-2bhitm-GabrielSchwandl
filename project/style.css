@@ -8,12 +8,15 @@ body {
     margin: 0;
     background-color: var(--color-bg);
 }
+
 nav {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+    padding: 1%;
     background-color: var(--color-main);
     background-size: cover;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
 }
+
 img {
     width: 25%;
     height: 10vh;
@@ -27,8 +30,8 @@ img {
 #darkmode {
     background-image: url(./img/moon.webp);
     background-size: contain;
-    margin-right: 75%;
-    margin-bottom: 1.5%;
+    margin-right: 80%;
+    margin-bottom: 7.5%;
 }
 #levels {
     margin: 3%;
