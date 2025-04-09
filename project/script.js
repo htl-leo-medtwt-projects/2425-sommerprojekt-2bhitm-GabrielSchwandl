@@ -15,3 +15,10 @@ showAllLevels();
 function goingDark() {
     root.style.setProperty('--color-bg', '#2E2E2E');
 }
+
+function login() {
+    let username = document.getElementById('username').value;
+    let password = document.getElementById('password').value;
+
+    
+}
