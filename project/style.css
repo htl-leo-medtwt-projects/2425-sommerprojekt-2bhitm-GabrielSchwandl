@@ -2,13 +2,14 @@
     --color-main: #D83C3C;
     --color-darker: #b21919;
     --color-bg: #ffffff;
+    --color-border: #2E2E2E;
 }
 
 body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin: 0;
     background-color: var(--color-bg);
-    overflow: hidden;
+    
 }
 
 nav {
@@ -17,6 +18,7 @@ nav {
     background-size: cover;
     display: grid;
     grid-template-columns: auto auto auto auto;
+    border-bottom: var(--color-border) 5px solid;
 }
 
 img {
@@ -28,6 +30,7 @@ img {
     width: 30%;
     height: 30vh;
     margin: 1%;
+    border: var(--color-border) 5px solid;
 }
 #darkmode {
     background-image: url(./img/moon.webp);
@@ -35,9 +38,11 @@ img {
     margin-right: 80%;
     margin-bottom: 7.5%;
 }
+
 #levels {
     margin: 3%;
 }
+
 #LogIn {
     background-color: var(--color-darker);
     margin: 35%;
@@ -45,10 +50,29 @@ img {
     padding: 2%;
     padding-left: 5%;
     padding-right: 5%;
-    padding-bottom: 10%;
-    border: solid 1px white;
+    border: solid 5px var(--color-border);
     border-radius: 7%;
 }
 #loginButton {
-    
+    margin-top: 50%;
+    padding: 2.5%;
+    padding-right: 60%;
+    border: var(--color-border) 2px solid;
+    border-radius: 7%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 0.5px;
+}
+input {
+    padding: 2%;
+    border: var(--color-border) 2px solid;
+    border-radius: 7%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 0.5px;
+}
+#waldoPopUp {
+    position: absolute;
+    width: 15%;
+    height: 15vh;
+    margin-left: 80%;
+    margin-bottom: 90%;
 }
