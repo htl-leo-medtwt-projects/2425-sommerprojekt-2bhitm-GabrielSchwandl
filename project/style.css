@@ -9,7 +9,7 @@ body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin: 0;
     background-color: var(--color-bg);
-    
+    overflow: hidden;
 }
 
 nav {
@@ -31,6 +31,7 @@ img {
     height: 30vh;
     margin: 1%;
     border: var(--color-border) 5px solid;
+
 }
 #darkmode {
     background-image: url(./img/moon.webp);
@@ -74,5 +75,30 @@ input {
     width: 15%;
     height: 15vh;
     margin-left: 80%;
-    margin-bottom: 90%;
+    bottom: 0;
+}
+#gameOverlay {
+    z-index: 100000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 90vh;
+    width: 90vw;
+    display: none;
+}
+#gameImage {
+    width: 100%;
+    height: 100%;
+}
+#backOverlay {
+    display: none;
+    z-index: 50000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
 }
