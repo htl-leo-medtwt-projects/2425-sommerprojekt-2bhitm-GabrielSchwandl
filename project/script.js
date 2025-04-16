@@ -40,7 +40,7 @@ function displayGame(i) {
     
     content += `
     <img id="gameImage" src="./img/pic${i}.jpg" alt="level${i}"></img>
-    <div id="waldo"></div>
+    <div class="waldo" id="waldo${i}"></div>
     `;
 
     overlay.innerHTML = content;

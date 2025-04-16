@@ -31,7 +31,7 @@ img {
     height: 30vh;
     margin: 1%;
     border: var(--color-border) 5px solid;
-
+    cursor: pointer;
 }
 #darkmode {
     background-image: url(./img/moon.webp);
@@ -101,4 +101,61 @@ input {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.75);
+}
+.waldo {
+    cursor: pointer;
+}
+
+#waldo1 {
+    position: absolute;
+    margin-left: 5%;
+    margin-top: -5.5%;
+    width: 2vw;
+    height: 6vh;
+    background-color: rgba(220, 25, 220, 0.5);
+}
+
+#waldo2 {
+    position: absolute;
+    margin-left: 16.2%;
+    margin-top: -32%;
+    width: 1.5vw;
+    height: 5.2vh;
+    background-color: rgba(220, 25, 220, 0.5);
+}
+/* Waldo suchen! */
+#waldo3 {
+    position: absolute;
+    margin-left: 5%;
+    margin-top: -5.5%;
+    width: 2vw;
+    height: 6vh;
+    background-color: rgba(220, 25, 220, 0.5);
+}
+
+#waldo4 {
+    position: absolute;
+    margin-left: 5%;
+    margin-top: -5.5%;
+    width: 2vw;
+    height: 6vh;
+    background-color: rgba(220, 25, 220, 0.5);
+}
+
+#waldo5 {
+    position: absolute;
+    margin-left: 5%;
+    margin-top: -5.5%;
+    width: 2vw;
+    height: 6vh;
+    background-color: rgba(220, 25, 220, 0.5);
+}
+
+#waldo6 {
+    position: absolute;
+    margin-left: 5%;
+    margin-top: -5.5%;
+    width: 2vw;
+    height: 6vh;
+    background-color: rgba(220, 25, 220, 0.5);
 }
