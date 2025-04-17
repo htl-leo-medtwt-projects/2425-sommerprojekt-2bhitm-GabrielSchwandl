@@ -40,7 +40,7 @@ function displayGame(i) {
     
     content += `
     <img id="gameImage" src="./img/pic${i}.jpg" alt="level${i}"></img>
-    <div class="waldo" id="waldo${i}"></div>
+    <div class="waldo" id="waldo${i}" onclick="vanish()"></div>
     `;
 
     overlay.innerHTML = content;
@@ -50,4 +50,11 @@ function displayGame(i) {
 function vanish() {
     overlay.style.display = "none";
     backOverlay.style.display = "none";
+}
+
+function waldoFound() {
+    overlay.style.display = "none";
+    backOverlay.style.display = "none";
+
+    
 }

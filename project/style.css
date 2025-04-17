@@ -103,7 +103,7 @@ input {
     background-color: rgba(0, 0, 0, 0.75);
 }
 .waldo {
-    cursor: pointer;
+
 }
 
 #waldo1 {
@@ -112,7 +112,6 @@ input {
     margin-top: -5.5%;
     width: 2vw;
     height: 6vh;
-    background-color: rgba(220, 25, 220, 0.5);
 }
 
 #waldo2 {
@@ -121,41 +120,36 @@ input {
     margin-top: -32%;
     width: 1.5vw;
     height: 5.2vh;
-    background-color: rgba(220, 25, 220, 0.5);
 }
-/* Waldo suchen! */
+
 #waldo3 {
     position: absolute;
-    margin-left: 5%;
-    margin-top: -5.5%;
-    width: 2vw;
-    height: 6vh;
-    background-color: rgba(220, 25, 220, 0.5);
+    margin-left: 16.5%;
+    margin-top: -17%;
+    width: 1vw;
+    height: 3vh;
 }
 
 #waldo4 {
     position: absolute;
-    margin-left: 5%;
-    margin-top: -5.5%;
-    width: 2vw;
+    margin-left: 83.5%;
+    margin-top: -16%;
+    width: 3.5vw;
     height: 6vh;
-    background-color: rgba(220, 25, 220, 0.5);
 }
 
 #waldo5 {
     position: absolute;
-    margin-left: 5%;
-    margin-top: -5.5%;
-    width: 2vw;
-    height: 6vh;
-    background-color: rgba(220, 25, 220, 0.5);
+    margin-left: 73%;
+    margin-top: -27.3%;
+    width: 1.5vw;
+    height: 4vh;
 }
 
 #waldo6 {
     position: absolute;
-    margin-left: 5%;
-    margin-top: -5.5%;
-    width: 2vw;
-    height: 6vh;
-    background-color: rgba(220, 25, 220, 0.5);
+    margin-left: 63.3%;
+    margin-top: -8%;
+    width: 1vw;
+    height: 3.5vh;
 }
