@@ -103,6 +103,28 @@ input {
     background-color: rgba(0, 0, 0, 0.75);
 }
 
+h1 {
+    color: white;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+h2 {
+    color: white;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+#explanation {
+    width: 12vw;
+    height: 15vh;
+}
+
+#ready {
+    cursor: pointer;
+    scale: 5;
+    color: var(--color-main);
+}
 
 #waldo1 {
     position: absolute;

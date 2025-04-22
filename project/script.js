@@ -9,7 +9,7 @@ function showAllLevels() {
 
     for(let i = 1; i < 7; i++) {
         string += `
-        <img class="pics" src="./img/pic${i}.jpg" onclick="displayGame('${i}')">
+        <img class="pics" src="./img/pic${i}.jpg" onclick="showTutorial(${i})">
         `
     }
     lvls.innerHTML = string;
@@ -28,11 +28,29 @@ function login() {
     
 }
 
-function showTutorial() {
-    if(!hasAccount) {
-        
-    }
+function showTutorial(i) {
+    let content = "";
 
+    content += `
+    <div class="reveal">
+            <div class="slides">
+		    <section><h1>HOW TO PLAY</h1></section>
+		    <section><h2>look for Waldo.He looks like this:</h2> <img src="./img/Wally.jpg" alt="waldo" id="explanation"><h2>when you find him click on him</h2></section>
+            <section><h1 onclick="displayGame(${i})" id="ready">READY?</h1></section>
+	    </div>
+    </div>
+    `;
+
+    overlay.innerHTML = content;
+    overlay.style.display = "block";
+    backOverlay.style.display = "block";
+        
+    Reveal.initialize({
+        hash: true,
+        
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+    });
 }
 
 function displayGame(i) {
@@ -46,6 +64,7 @@ function displayGame(i) {
     overlay.innerHTML = content;
     overlay.style.display = "block";
     backOverlay.style.display = "block";
+    Reveal.initialize();
 }
 function vanish() {
     overlay.style.display = "none";
