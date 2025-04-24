@@ -105,14 +105,18 @@ input {
 
 h1 {
     color: white;
+    scale: 4;
     margin-left: 40%;
     margin-right: 40%;
 }
 
 h2 {
     color: white;
+    scale: 3;
     margin-left: 40%;
     margin-right: 40%;
+    margin-bottom: 10%;
+    margin-top: 10%;
 }
 
 #explanation {
@@ -122,7 +126,7 @@ h2 {
 
 #ready {
     cursor: pointer;
-    scale: 5;
+    scale: 7;
     color: var(--color-main);
 }
 
