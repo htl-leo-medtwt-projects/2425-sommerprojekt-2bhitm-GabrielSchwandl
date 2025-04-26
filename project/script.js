@@ -33,7 +33,7 @@ function showTutorial(i) {
 
     content += `
     <div class="reveal">
-            <div class="slides">
+        <div class="slides">
 		    <section><h1>HOW TO PLAY</h1></section>
 		    <section><h2>look for Waldo. He looks like this:</h2> <img src="./img/Wally.png" alt="waldo" id="explanation"><h2>when you find him click on him</h2></section>
             <section><h1 onclick="displayGame(${i})" id="ready">READY?</h1></section>
@@ -57,8 +57,8 @@ function displayGame(i) {
     let content = "";
     
     content += `
-    <img id="gameImage" src="./img/pic${i}.jpg" alt="level${i}"></img>
-    <div class="waldo" id="waldo${i}" onclick="vanish()"></div>
+        <img id="gameImage" src="./img/pic${i}.jpg" alt="level${i}"></img>
+        <div class="waldo" id="waldo${i}" onclick="vanish()"></div>
     `;
 
     overlay.innerHTML = content;
