@@ -177,3 +177,12 @@ h2 {
     width: 1vw;
     height: 3.5vh;
 }
+#timer {
+    position: absolute;
+    z-index: 1000000000;
+    color: red;
+    scale: 3;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 15%;
+}

@@ -3,6 +3,7 @@ let root = document.querySelector(':root');
 let game = document.getElementById('game');
 let overlay = document.getElementById('gameOverlay');
 let backOverlay = document.getElementById('backOverlay');
+let timer = document.getElementById('timer');
 
 function showAllLevels() {
     let string = '';
@@ -57,6 +58,7 @@ function displayGame(i) {
     let content = "";
     
     content += `
+        <div id="timer"></div>
         <img id="gameImage" src="./img/pic${i}.jpg" alt="level${i}"></img>
         <div class="waldo" id="waldo${i}" onclick="vanish()"></div>
     `;
@@ -65,6 +67,7 @@ function displayGame(i) {
     overlay.style.display = "block";
     backOverlay.style.display = "block";
     Reveal.initialize();
+    startTimer();
 }
 function vanish() {
     overlay.style.display = "none";
@@ -72,8 +75,13 @@ function vanish() {
 }
 
 function waldoFound() {
-    overlay.style.display = "none";
-    backOverlay.style.display = "none";
+    vanish();
+}
 
-    
+function startTimer() {
+    for(let i = 10; i > 0; i--) {
+        timer.innerHTML = `Time: ${i}`;
+        setTimeout(10);
+    }
+    vanish();
 }
