@@ -186,3 +186,24 @@ h2 {
     margin-right: 40%;
     margin-top: 15%;
 }
+.card {
+    border: 10px var(--color-darker) solid;
+    width: 30%;
+    height: 60%;
+    margin-top: 20%;
+    padding-left: 15%;
+    padding-right: 30%;
+    padding: 7%;
+}
+
+#shop {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-left: 10%;
+}
+
+.Shopics {
+    width: 10vw;
+    height: 10vh;
+    border: 3px #2E2E2E solid;
+}

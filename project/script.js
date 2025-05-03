@@ -4,6 +4,7 @@ let game = document.getElementById('game');
 let overlay = document.getElementById('gameOverlay');
 let backOverlay = document.getElementById('backOverlay');
 let timer = document.getElementById('timer');
+let points = 0;
 
 function showAllLevels() {
     let string = '';
@@ -16,6 +17,37 @@ function showAllLevels() {
     lvls.innerHTML = string;
 }
 
+function showShop() {
+    let string = '';
+
+    for(let i = 0; i < 3; i++) {
+        string += `
+        <div class='card'>
+        <img class="Shopics" src="./img/picShop${i}.png">
+        `
+
+        if(i == 0) {
+            string += `<h3>Magnifying Glass</h3>
+            <p>transforms the Cursor into a Magnifying Glass</p>
+            `
+        } else if(i == 1) {
+            string += `<h3>Minimalist Cursor</h3>
+            <p>transforms the Cursor to look much simpler</p>
+            `
+        } else {
+            string += `<h3>Maximalist Cursor</h3>
+            <p>transforms the Cursor to look much fancier and extravagant</p>
+            `
+        }
+
+        string += `<h1 onclick="buy(${i})>BUY</h1>`
+        string += `</div>`;
+    }
+    
+    shop.innerHTML = string;
+}
+
+showShop();
 showAllLevels();
 function goingDark() {
     root.style.setProperty('--color-bg', '#2E2E2E');
@@ -26,7 +58,7 @@ function login() {
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value;
 
-    
+    points = 1;
 }
 
 function showTutorial(i) {
@@ -75,13 +107,17 @@ function vanish() {
 }
 
 function waldoFound() {
+    points += 100;
+
     vanish();
 }
 
 function startTimer() {
+
     for(let i = 10; i > 0; i--) {
         timer.innerHTML = `Time: ${i}`;
         setTimeout(10);
     }
+
     vanish();
 }
