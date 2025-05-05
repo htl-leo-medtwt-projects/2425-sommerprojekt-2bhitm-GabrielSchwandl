@@ -17,6 +17,8 @@ function showAllLevels() {
     lvls.innerHTML = string;
 }
 
+showAllLevels();
+showShop();
 function showShop() {
     let string = '';
 
@@ -29,26 +31,29 @@ function showShop() {
         if(i == 0) {
             string += `<h3>Magnifying Glass</h3>
             <p>transforms the Cursor into a Magnifying Glass</p>
+            <div id="buy"><h3 onclick="buy(${i})">BUY</h3></div>
             `
         } else if(i == 1) {
             string += `<h3>Minimalist Cursor</h3>
             <p>transforms the Cursor to look much simpler</p>
+            <div id="buy"><h3 onclick="buy(${i})">BUY</h3></div>
             `
         } else {
             string += `<h3>Maximalist Cursor</h3>
             <p>transforms the Cursor to look much fancier and extravagant</p>
+            <div id="buy"><h3 onclick="buy(${i})">BUY</h3></div>
             `
         }
 
-        string += `<h1 onclick="buy(${i})>BUY</h1>`
+        
         string += `</div>`;
     }
     
     shop.innerHTML = string;
 }
 
-showShop();
-showAllLevels();
+
+
 function goingDark() {
     root.style.setProperty('--color-bg', '#2E2E2E');
     root.style.setProperty('--color-border', '#000000');
