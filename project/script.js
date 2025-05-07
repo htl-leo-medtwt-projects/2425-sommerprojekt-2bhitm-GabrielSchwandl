@@ -3,7 +3,9 @@ let root = document.querySelector(':root');
 let game = document.getElementById('game');
 let overlay = document.getElementById('gameOverlay');
 let backOverlay = document.getElementById('backOverlay');
+let shop = document.getElementById('shop');
 let timer = document.getElementById('timer');
+let logIn = document.getElementById('LogIn');
 let nav = document.nav
 let body = document.body;
 let points = 0;
@@ -15,15 +17,16 @@ function showAllLevels() {
         string += `
         <img class="pics" src="./img/pic${i}.jpg" onclick="showTutorial(${i})">
         `;
-        console.log(string);
     }
     lvls.innerHTML = string;
+    
 }
 
 showShop()
+showAllLevels()
 function showShop() {
     let string = '';
-
+    console.log('methode passt')
     for(let i = 0; i < 3; i++) {
         string += `
         <div class='card'>
@@ -64,8 +67,21 @@ function goingDark() {
 function login() {
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value;
+    let string = '';
 
-    points = 1;
+    if (username == localStorage.getItem('username') && password == localStorage.getItem('username')) {
+        points = localStorage.getItem('points');
+    } else {
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
+        localStorage.setItem('points', points);
+    }
+    
+    string += `
+    <h3>Points: ${points}</h3>
+    `
+
+    logIn.innerHTML = string;
 }
 
 function showTutorial(i) {
@@ -115,7 +131,7 @@ function vanish() {
 
 function waldoFound() {
     points += 100;
-
+    localStorage.setItem(points.toString)
     vanish();
 }
 
@@ -129,10 +145,11 @@ function startTimer() {
     vanish();
 }
 
-function buy(i) {
+function buy() {
     body.style.cursor = 'none';
 
-    
+    points -= 200;
+    localStorage.setItem('points', points);
 }
 
 document·addEventListener("mousemove", function(event) {
