@@ -22,9 +22,11 @@ function showAllLevels() {
     lvls.innerHTML = string;
     
 }
+//ich weiß nicht wieso aber die zweite Funktion unabhänging davon ob es showShop() oder showAllLevels() ist, die hier aufgerufen wird,
+// wird nicht außgeführt da das Programm anscheinend innerhtml nicht mehr erkennt.
 
-showAllLevels()
 showShop()
+showAllLevels()
 
 function showShop() {
     let string = '';
