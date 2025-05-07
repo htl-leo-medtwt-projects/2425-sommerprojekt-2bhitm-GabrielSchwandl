@@ -9,21 +9,23 @@ let logIn = document.getElementById('LogIn');
 let nav = document.nav
 let body = document.body;
 let points = 0;
+localStorage.setItem('isLogged', false);
 
 function showAllLevels() {
     let string = '';
 
     for(let i = 1; i < 7; i++) {
         string += `
-        <img class="pics" src="./img/pic${i}.jpg" onclick="showTutorial(${i})">
+        <img class="pics" src="./img/pic${i}.jpg" onclick="displayGame(${i})">
         `;
     }
     lvls.innerHTML = string;
     
 }
 
-showShop()
 showAllLevels()
+showShop()
+
 function showShop() {
     let string = '';
     console.log('methode passt')
@@ -71,7 +73,7 @@ function login() {
 
     if (username == localStorage.getItem('username') && password == localStorage.getItem('username')) {
         points = localStorage.getItem('points');
-    } else if(username == 'dev', password == 'hi') {
+    } else if(username == 'dev'&& password == 'hi') {
         points = 10000000;
         localStorage.setItem('points', points);
     } else {
@@ -79,6 +81,7 @@ function login() {
         localStorage.setItem('password', password);
         localStorage.setItem('points', points);
     }
+    localStorage.setItem('isLogged', true);
     
     string += `
     <h3>Points: ${points}</h3>
@@ -88,6 +91,7 @@ function login() {
 }
 
 function showTutorial(i) {
+
     let content = "";
 
     content += `
@@ -113,6 +117,9 @@ function showTutorial(i) {
 }
 
 function displayGame(i) {
+    if (localStorage.getItem('isLogged') == false) {
+        showTutorial(i);
+    }
     let content = "";
     
     content += `
@@ -133,8 +140,9 @@ function vanish() {
 }
 
 function waldoFound() {
+    points = localStorage.getItem('points');
     points += 100;
-    localStorage.setItem(points.toString);
+    localStorage.setItem('points', points);
     vanish();
 }
 
@@ -150,9 +158,9 @@ function startTimer() {
 
 function buy() {
     body.style.cursor = 'none';
-
-    points -= 200;
-    localStorage.setItem('points', points.toString);
+    points = localStorage.getItem('points');
+    points = points - 200;
+    localStorage.setItem('points', points);
 }
 
 document·addEventListener("mousemove", function(event) {
