@@ -4,6 +4,8 @@ let game = document.getElementById('game');
 let overlay = document.getElementById('gameOverlay');
 let backOverlay = document.getElementById('backOverlay');
 let timer = document.getElementById('timer');
+let nav = document.nav
+let body = document.body;
 let points = 0;
 
 function showAllLevels() {
@@ -12,13 +14,13 @@ function showAllLevels() {
     for(let i = 1; i < 7; i++) {
         string += `
         <img class="pics" src="./img/pic${i}.jpg" onclick="showTutorial(${i})">
-        `
+        `;
+        console.log(string);
     }
     lvls.innerHTML = string;
 }
 
-showAllLevels();
-showShop();
+showShop()
 function showShop() {
     let string = '';
 
@@ -126,3 +128,15 @@ function startTimer() {
 
     vanish();
 }
+
+function buy(i) {
+    body.style.cursor = 'none';
+
+    
+}
+
+document·addEventListener("mousemove", function(event) {
+    var customCursor = document·querySelector("·custom-cursor");
+    customCursor·style·left = event·clientX + "px";
+    customCursor·style·top = event·clientY + "px";
+});

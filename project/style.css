@@ -217,3 +217,18 @@ h2 {
     text-align: center;
     cursor: pointer;
 }
+
+#buy:hover {
+    background-color: orange;
+    color: white;
+}
+
+·custom-cursor {
+    width: 20px;
+    height: 20px;
+    background-image: url(./img/picShop0.png); /* Customize cursor color */
+    position: absolute;
+    pointer-events: none; /* Allow clicks to pass through */
+    z-index: 9999; /* Ensure cursor is on top of other elements */
+    transform: translate(-50%, -50%); /* Center cursor on mouse position */
+}
