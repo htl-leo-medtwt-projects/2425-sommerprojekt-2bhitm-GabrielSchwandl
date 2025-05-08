@@ -223,7 +223,7 @@ h2 {
     color: white;
 }
 
-·custom-cursor {
+.custom-cursor {
     width: 20px;
     height: 20px;
     background-image: url(./img/picShop0.png); /* Customize cursor color */

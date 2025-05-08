@@ -9,28 +9,33 @@ let logIn = document.getElementById('LogIn');
 let nav = document.nav
 let body = document.body;
 let points = 0;
-localStorage.setItem('isLogged', false);
+
 
 function showAllLevels() {
-    let string = '';
-
-    for(let i = 1; i < 7; i++) {
-        string += `
-        <img class="pics" src="./img/pic${i}.jpg" onclick="displayGame(${i})">
-        `;
+    if (lvls == null) {
+        console.log('this is shop');
+    } else {
+        let string = '';
+    
+        for(let i = 1; i < 7; i++) {
+            string += `
+            <img class="pics" src="./img/pic${i}.jpg" onclick="displayGame(${i})">
+            `;
+        }
+        lvls.innerHTML = string;
     }
-    lvls.innerHTML = string;
+
     
 }
-//ich weiß nicht wieso aber die zweite Funktion unabhänging davon ob es showShop() oder showAllLevels() ist, die hier aufgerufen wird,
-// wird nicht außgeführt da das Programm anscheinend innerhtml nicht mehr erkennt.
 
 showShop()
 showAllLevels()
 
 function showShop() {
-    let string = '';
-    console.log('methode passt')
+    if(shop == null) {
+        console.log('das hier ist levels');
+    } else {
+        let string = '';
     for(let i = 0; i < 3; i++) {
         string += `
         <div class='card'>
@@ -59,9 +64,8 @@ function showShop() {
     }
     
     shop.innerHTML = string;
+    }
 }
-
-
 
 function goingDark() {
     root.style.setProperty('--color-bg', '#2E2E2E');
@@ -78,6 +82,8 @@ function login() {
     } else if(username == 'dev'&& password == 'hi') {
         points = 10000000;
         localStorage.setItem('points', points);
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
     } else {
         localStorage.setItem('username', username);
         localStorage.setItem('password', password);
@@ -116,6 +122,7 @@ function showTutorial(i) {
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
     });
+    Reveal.initialize();
 }
 
 function displayGame(i) {
@@ -133,7 +140,7 @@ function displayGame(i) {
     overlay.innerHTML = content;
     overlay.style.display = "block";
     backOverlay.style.display = "block";
-    Reveal.initialize();
+    
     startTimer();
 }
 function vanish() {
@@ -151,7 +158,7 @@ function waldoFound() {
 function startTimer() {
 
     for(let i = 10; i > 0; i--) {
-        timer.innerHTML = `Time: ${i}`;
+        timer.innerHTML = `<h3>Time: ${i}</h3>`;
         setTimeout(10);
     }
 
@@ -159,10 +166,15 @@ function startTimer() {
 }
 
 function buy() {
-    body.style.cursor = 'none';
+    if (localStorage.getItem('points') < 200) {
+        alert("You don't have enough points!");
+    } else {
+        body.style.cursor = 'none';
     points = localStorage.getItem('points');
     points = points - 200;
     localStorage.setItem('points', points);
+    }
+    
 }
 
 document·addEventListener("mousemove", function(event) {
