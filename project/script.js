@@ -10,7 +10,6 @@ let nav = document.nav
 let body = document.body;
 let points = 0;
 
-
 function showAllLevels() {
     if (lvls == null) {
         console.log('this is shop');
@@ -25,7 +24,6 @@ function showAllLevels() {
         lvls.innerHTML = string;
     }
 
-    
 }
 
 showShop()
@@ -45,17 +43,17 @@ function showShop() {
         if(i == 0) {
             string += `<h3>Magnifying Glass</h3>
             <p>transforms the Cursor into a Magnifying Glass</p>
-            <div id="buy"><h3 onclick="buy(${i})">BUY</h3></div>
+            <div id="buy"><h3 onclick="buy(${i})">BUY - 200</h3></div>
             `
         } else if(i == 1) {
             string += `<h3>Minimalist Cursor</h3>
             <p>transforms the Cursor to look much simpler</p>
-            <div id="buy"><h3 onclick="buy(${i})">BUY</h3></div>
+            <div id="buy"><h3 onclick="buy(${i})">BUY- 200</h3></div>
             `
         } else {
             string += `<h3>Maximalist Cursor</h3>
             <p>transforms the Cursor to look much fancier and extravagant</p>
-            <div id="buy"><h3 onclick="buy(${i})">BUY</h3></div>
+            <div id="buy"><h3 onclick="buy(${i})">BUY - 200</h3></div>
             `
         }
 
@@ -99,10 +97,10 @@ function login() {
 }
 
 function showTutorial(i) {
-
-    let content = "";
-
-    content += `
+    if(overlay != null && backOverlay != null) {
+        
+    if(localStorage.getItem('isLogged') == 'false') {
+        content += `
     <div class="reveal">
         <div class="slides">
 		    <section><h1>HOW TO PLAY</h1></section>
@@ -123,6 +121,9 @@ function showTutorial(i) {
         plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
     });
     Reveal.initialize();
+    }
+    
+    }
 }
 
 function displayGame(i) {
@@ -150,7 +151,7 @@ function vanish() {
 
 function waldoFound() {
     points = localStorage.getItem('points');
-    points += 100;
+    points = points + 100;
     localStorage.setItem('points', points);
     vanish();
 }
@@ -165,7 +166,7 @@ function startTimer() {
     vanish();
 }
 
-function buy() {
+function buy(i) {
     if (localStorage.getItem('points') < 200) {
         alert("You don't have enough points!");
     } else {
@@ -173,8 +174,8 @@ function buy() {
     points = localStorage.getItem('points');
     points = points - 200;
     localStorage.setItem('points', points);
+
     }
-    
 }
 
 document·addEventListener("mousemove", function(event) {
