@@ -26,6 +26,7 @@ function showAllLevels() {
 
 }
 
+showLogIn()
 showShop()
 showAllLevels()
 
@@ -123,6 +124,28 @@ function showTutorial(i) {
     Reveal.initialize();
     }
     
+    }
+}
+
+function showLogIn() {
+    if(logIn != null) {
+        if(localStorage.getItem('isLogged') == 'false') {
+            string += `
+            <p>User:</p>
+            <input type="text" id="username" placeholder="Waldo">
+            <p>Password (DONT USE A REAL ONE)</p>
+            <input type="password" id="password" placeholder="Waldo's Password">
+            <button id="loginButton" onclick="login()">Log In</button>
+            `
+
+            logIn.innerHTML = string;
+        } else {
+            string += `
+            <h3>Points: ${points}</h3>
+            `
+
+            logIn.innerHTML = string;
+        }
     }
 }
 
