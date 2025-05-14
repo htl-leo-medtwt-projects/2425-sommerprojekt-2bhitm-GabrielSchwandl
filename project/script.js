@@ -128,8 +128,10 @@ function showTutorial(i) {
 }
 
 function showLogIn() {
-    if(logIn != null) {
-        if(localStorage.getItem('isLogged') == 'false') {
+    if(logIn == null) {
+        console.log
+    } else {
+        if(localStorage.getItem('isLogged') == 'false' || localStorage.getItem('isLogged') == null) {
             string += `
             <p>User:</p>
             <input type="text" id="username" placeholder="Waldo">
