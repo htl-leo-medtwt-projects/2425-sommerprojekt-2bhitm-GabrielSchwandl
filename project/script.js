@@ -213,29 +213,20 @@ function showDifficulty(i) {
     <div id="difficultyOverlay">
 
     <div id="easy" class="difficultys" onclick="displayGame(${i})">
-    <h3>Easy</h3>
-    <br>
-    <br>
-    <br>
-    <br>
+    <h4>Easy</h4>
+    
     <p>Description:<br>-No Timer<br> -Hints after some time</p>
     </div>
 
     <div id="medium" class="difficultys" onclick="displayGame(${i})">
-    <h3>Medium</h3>
-    <br>
-    <br>
-    <br>
-    <br>
+    <h4>Medium</h4>
+    
     <p>Description:<br>-60 second Timer<br> -Hints after a long time</p>
     </div>
 
     <div id="hard" class="difficultys" onclick="displayGame(${i})">
-    <h3>Hard</h3>
-    <br>
-    <br>
-    <br>
-    <br>
+    <h4>Hard</h4>
+    
     <p>Description:<br>-30 second Timer<br> -No Hints</p>
     </div>
 
