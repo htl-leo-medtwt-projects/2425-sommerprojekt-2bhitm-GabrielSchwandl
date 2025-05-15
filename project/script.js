@@ -18,7 +18,7 @@ function showAllLevels() {
     
         for(let i = 1; i < 7; i++) {
             string += `
-            <img class="pics" src="./img/pic${i}.jpg" onclick="displayGame(${i})">
+            <img class="pics" src="./img/pic${i}.jpg" onclick="showDifficulty(${i})">
             `;
         }
         lvls.innerHTML = string;
@@ -129,8 +129,9 @@ function showTutorial(i) {
 
 function showLogIn() {
     if(logIn == null) {
-        console.log
+        console.log("not login")
     } else {
+        let string ='';
         if(localStorage.getItem('isLogged') == 'false' || localStorage.getItem('isLogged') == null) {
             string += `
             <p>User:</p>
@@ -142,6 +143,7 @@ function showLogIn() {
 
             logIn.innerHTML = string;
         } else {
+            points = localStorage.getItem('points');
             string += `
             <h3>Points: ${points}</h3>
             `
@@ -154,8 +156,8 @@ function showLogIn() {
 function displayGame(i) {
     if (localStorage.getItem('isLogged') == false) {
         showTutorial(i);
-    }
-    let content = "";
+    } else {
+        let content = "";
     
     content += `
         <div id="timer"></div>
@@ -168,6 +170,7 @@ function displayGame(i) {
     backOverlay.style.display = "block";
     
     startTimer();
+    }
 }
 function vanish() {
     overlay.style.display = "none";
@@ -201,6 +204,31 @@ function buy(i) {
     localStorage.setItem('points', points);
 
     }
+}
+
+function showDifficulty(i) {
+    let string = '';
+
+    string += `
+    <div id="difficultyOverlay">
+    <div id="easy" class="difficultys" onclick="displayGame(${i})">
+    <h3>Easy</h3>
+    <p>Description:<br>-No Timer<br> -Hints after some time</p>
+    </div>
+    <div id="medium" class="difficultys" onclick="displayGame(${i})">
+    <h3>Medium</h3>
+    <p>Description:<br>-60 second Timer<br> -Hints after a long time</p>
+    </div>
+    <div id="hard" class="difficultys" onclick="displayGame(${i})">
+    <h3>Hard</h3>
+    <p>Description:<br>-30 second Timer<br> -No Hints</p>
+    </div>
+    </div>
+    `;
+
+    overlay.innerHTML = string;
+    overlay.style.display = "block";
+    backOverlay.style.display = "block";
 }
 
 document·addEventListener("mousemove", function(event) {
