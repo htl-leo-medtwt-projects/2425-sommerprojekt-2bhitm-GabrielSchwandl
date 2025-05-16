@@ -6,8 +6,8 @@ let backOverlay = document.getElementById('backOverlay');
 let shop = document.getElementById('shop');
 let timer = document.getElementById('timer');
 let logIn = document.getElementById('LogIn');
-let nav = document.nav
-let body = document.body;
+let nav = document.getElementById('navId');
+let body = document.getElementsByTagName("body");
 let points = 0;
 
 function showAllLevels() {
@@ -27,6 +27,7 @@ function showAllLevels() {
 }
 
 showLogIn()
+showPoints()
 showShop()
 showAllLevels()
 
@@ -153,7 +154,7 @@ function showLogIn() {
     }
 }
 
-function displayGame(i) {
+function displayGame(i, difficulty) {
     if (localStorage.getItem('isLogged') == false) {
         showTutorial(i);
     } else {
@@ -169,7 +170,7 @@ function displayGame(i) {
     overlay.style.display = "block";
     backOverlay.style.display = "block";
     
-    startTimer();
+    startTimer(difficulty);
     }
 }
 function vanish() {
@@ -184,25 +185,39 @@ function waldoFound() {
     vanish();
 }
 
-function startTimer() {
-
-    for(let i = 10; i > 0; i--) {
-        timer.innerHTML = `<h3>Time: ${i}</h3>`;
-        setTimeout(10);
+function startTimer(difficulty) {
+    if (difficulty == "easy") {
+        timer.style.display = "none";
     }
+    if(difficulty == "medium") {
+        for(let i = 60; i > 0; i--) {
+        
+        setTimeout(() => {
+            timer.innerHTML = `<h3>Time: ${i}</h3>`;
+        }, 1000);
+    }
+    } else {
+        for(let i = 30; i > 0; i--) {
+        
+        setTimeout(() => {
+            timer.innerHTML = `<h3>Time: ${i}</h3>`;
+        }, 1000);
+    }
+    
 
     vanish();
+}
 }
 
 function buy(i) {
     if (localStorage.getItem('points') < 200) {
         alert("You don't have enough points!");
     } else {
-        body.style.cursor = 'none';
+    body.style.cursor = 'none';
     points = localStorage.getItem('points');
     points = points - 200;
     localStorage.setItem('points', points);
-
+    body.style.cursor = `url('./img/picShop${i}.png'), auto`;
     }
 }
 
@@ -212,19 +227,19 @@ function showDifficulty(i) {
     string += `
     <div id="difficultyOverlay">
 
-    <div id="easy" class="difficultys" onclick="displayGame(${i})">
+    <div id="easy" class="difficultys" onclick="displayGame(${i}, "easy")">
     <h4>Easy</h4>
     
     <p>Description:<br>-No Timer<br> -Hints after some time</p>
     </div>
 
-    <div id="medium" class="difficultys" onclick="displayGame(${i})">
+    <div id="medium" class="difficultys" onclick="displayGame(${i}, "medium")">
     <h4>Medium</h4>
     
     <p>Description:<br>-60 second Timer<br> -Hints after a long time</p>
     </div>
 
-    <div id="hard" class="difficultys" onclick="displayGame(${i})">
+    <div id="hard" class="difficultys" onclick="displayGame(${i}, "hard")">
     <h4>Hard</h4>
     
     <p>Description:<br>-30 second Timer<br> -No Hints</p>
@@ -238,8 +253,17 @@ function showDifficulty(i) {
     backOverlay.style.display = "block";
 }
 
-document·addEventListener("mousemove", function(event) {
-    var customCursor = document·querySelector("·custom-cursor");
-    customCursor·style·left = event·clientX + "px";
-    customCursor·style·top = event·clientY + "px";
-});
+function showPoints() {
+    if(shop == null) {
+        console.log("shop is null")
+    } else {
+        let string = '';
+        points = localStorage.getItem('points');
+
+        string = `
+        <h2 id="points">${points} P</h2>
+        `
+
+        shop.innerHTML += string;
+    }
+}
