@@ -185,29 +185,41 @@ function waldoFound() {
     vanish();
 }
 
-function startTimer(difficulty) {
-    if (difficulty == "easy") {
-        timer.style.display = "none";
-    }
-    if(difficulty == "medium") {
-        for(let i = 60; i > 0; i--) {
-        
-        setTimeout(() => {
-            timer.innerHTML = `<h3>Time: ${i}</h3>`;
-        }, 1000);
-    }
-    } else {
-        for(let i = 30; i > 0; i--) {
-        
-        setTimeout(() => {
-            timer.innerHTML = `<h3>Time: ${i}</h3>`;
-        }, 1000);
-    }
-    
+let countdownInterval; // globaler Timer-Handler
 
-    vanish();
+function startTimer(difficulty) {
+    let timeLeft;
+
+    if (difficulty === "easy") {
+        timer.style.display = "none";
+        return;
+    } else if (difficulty === "medium") {
+        timeLeft = 60;
+    } else if (difficulty === "hard") {
+        timeLeft = 30;
+    } else {
+        console.error("Unbekannter Schwierigkeitsgrad:", difficulty);
+        return;
+    }
+
+    timer.style.display = "block"; // sicherstellen, dass der Timer sichtbar ist
+
+    // Vorherigen Timer stoppen, falls vorhanden
+    clearInterval(countdownInterval);
+
+    // Timer starten
+    countdownInterval = setInterval(() => {
+        timer.innerHTML = `<h3>Time: ${timeLeft}</h3>`;
+        timeLeft--;
+
+        if (timeLeft < 0) {
+            clearInterval(countdownInterval); // Timer stoppen
+            timer.innerHTML = `<h3>Time's up!</h3>`;
+            vanish(); // Aktion nach Ablauf
+        }
+    }, 1000);
 }
-}
+
 
 function buy(i) {
     if (localStorage.getItem('points') < 200) {
@@ -227,19 +239,19 @@ function showDifficulty(i) {
     string += `
     <div id="difficultyOverlay">
 
-    <div id="easy" class="difficultys" onclick="displayGame(${i}, "easy")">
+    <div id="easy" class="difficultys" onclick="displayGame(${i}, 'easy')">
     <h4>Easy</h4>
     
     <p>Description:<br>-No Timer<br> -Hints after some time</p>
     </div>
 
-    <div id="medium" class="difficultys" onclick="displayGame(${i}, "medium")">
+    <div id="medium" class="difficultys" onclick="displayGame(${i}, 'medium')">
     <h4>Medium</h4>
     
     <p>Description:<br>-60 second Timer<br> -Hints after a long time</p>
     </div>
 
-    <div id="hard" class="difficultys" onclick="displayGame(${i}, "hard")">
+    <div id="hard" class="difficultys" onclick="displayGame(${i}, 'hard')">
     <h4>Hard</h4>
     
     <p>Description:<br>-30 second Timer<br> -No Hints</p>
