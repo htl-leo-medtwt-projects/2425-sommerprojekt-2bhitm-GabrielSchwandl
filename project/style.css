@@ -193,9 +193,8 @@ h4 {
     z-index: 1000000000;
     color: red;
     scale: 3;
-    margin-left: 40%;
-    margin-right: 40%;
-    margin-top: 15%;
+    margin-left: 48%;
+    margin-top: 0%;
 }
 .card {
     border: 10px var(--color-darker) solid;

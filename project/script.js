@@ -185,9 +185,11 @@ function waldoFound() {
     vanish();
 }
 
-let countdownInterval; // globaler Timer-Handler
+let countdownInterval;
 
 function startTimer(difficulty) {
+    timer = document.getElementById('timer');
+    console.log(`timer gestartet mit ${difficulty}`);
     let timeLeft;
 
     if (difficulty === "easy") {
@@ -202,24 +204,19 @@ function startTimer(difficulty) {
         return;
     }
 
-    timer.style.display = "block"; // sicherstellen, dass der Timer sichtbar ist
-
-    // Vorherigen Timer stoppen, falls vorhanden
     clearInterval(countdownInterval);
 
-    // Timer starten
-    countdownInterval = setInterval(() => {
+        countdownInterval = setInterval(() => {
         timer.innerHTML = `<h3>Time: ${timeLeft}</h3>`;
         timeLeft--;
 
         if (timeLeft < 0) {
-            clearInterval(countdownInterval); // Timer stoppen
+            clearInterval(countdownInterval);
             timer.innerHTML = `<h3>Time's up!</h3>`;
-            vanish(); // Aktion nach Ablauf
+            vanish();
         }
     }, 1000);
 }
-
 
 function buy(i) {
     if (localStorage.getItem('points') < 200) {
