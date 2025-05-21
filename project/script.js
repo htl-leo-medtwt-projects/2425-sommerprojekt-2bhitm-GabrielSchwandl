@@ -170,7 +170,7 @@ function displayGame(i, difficulty) {
     overlay.style.display = "block";
     backOverlay.style.display = "block";
     
-    startTimer(difficulty);
+    startTimer(difficulty, i);
     }
 }
 function vanish() {
@@ -187,21 +187,22 @@ function waldoFound() {
 
 let countdownInterval;
 
-function startTimer(difficulty) {
+function startTimer(difficulty, i) {
     timer = document.getElementById('timer');
     console.log(`timer gestartet mit ${difficulty}`);
     let timeLeft;
+    let hints = false;
 
-    if (difficulty === "easy") {
-        timer.style.display = "none";
-        return;
-    } else if (difficulty === "medium") {
+    if (difficulty == "easy") {
+        hints = true;
+        timeLeft = 10;
+    } else if (difficulty == "medium") {
+        hints = true;
         timeLeft = 60;
-    } else if (difficulty === "hard") {
+        timer.style.display = "block";
+    } else if (difficulty == "hard") {
         timeLeft = 30;
-    } else {
-        console.error("Unbekannter Schwierigkeitsgrad:", difficulty);
-        return;
+        timer.style.display = "block";
     }
 
     clearInterval(countdownInterval);
@@ -209,11 +210,28 @@ function startTimer(difficulty) {
         countdownInterval = setInterval(() => {
         timer.innerHTML = `<h3>Time: ${timeLeft}</h3>`;
         timeLeft--;
-
+            if ( (timeLeft == 0 && difficulty == "easy")|| (timeLeft == 30 && difficulty == "medium")) {
+                if(i == 1) {
+                    alert("Waldo is a fan of cats");
+                } else if(i == 2) {
+                    alert("Waldo is enjoying the view of a carriage");
+                } else if(i == 3) {
+                    alert("Waldo likes blocks and ships");
+                } else if(i == 4) {
+                    alert("Waldo is near a hut");
+                } else if(i == 5) {
+                    alert("Waldo hears gunshots");
+                } else {
+                    alert("Waldo smells delicious meals");
+                }
+                console.log("hint placed")
+            }
         if (timeLeft < 0) {
             clearInterval(countdownInterval);
-            timer.innerHTML = `<h3>Time's up!</h3>`;
-            vanish();
+            if(difficulty != "easy") {
+                vanish();
+            }
+           
         }
     }, 1000);
 }
