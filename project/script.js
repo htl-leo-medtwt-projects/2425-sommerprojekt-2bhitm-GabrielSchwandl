@@ -9,6 +9,7 @@ let logIn = document.getElementById('LogIn');
 let nav = document.getElementById('navId');
 let body = document.getElementsByTagName("body");
 let points = 0;
+let cCursor = document.getElementById('custom-cursor');
 
 function showAllLevels() {
     if (lvls == null) {
@@ -30,6 +31,7 @@ showLogIn()
 showPoints()
 showShop()
 showAllLevels()
+showCursor()
 
 function showShop() {
     if(shop == null) {
@@ -240,11 +242,19 @@ function buy(i) {
     if (localStorage.getItem('points') < 200) {
         alert("You don't have enough points!");
     } else {
-    body.style.cursor = 'none';
+    
     points = localStorage.getItem('points');
     points = points - 200;
     localStorage.setItem('points', points);
-    body.style.cursor = `url('./img/picShop${i}.png'), auto`;
+    let string = '';
+
+    string = `<img src="./img/picShop${i}.png" alt="" id="cImg">`;
+    
+    document.body.style.cursor = "none";
+    cCursor.innerHTML = string;
+    cCursor.style.display = "block";
+    localStorage.setItem('isCursor', true);
+    localStorage.setItem('cursorImg', string)
     }
 }
 
@@ -294,3 +304,22 @@ function showPoints() {
         shop.innerHTML += string;
     }
 }
+
+function showCursor() {
+    let isCursor = localStorage.getItem('isCursor');
+    console.log('cursa');
+    if(isCursor) {
+    let string = '';
+    
+    string = localStorage.getItem('cursorImg');
+    
+    document.body.style.cursor = "none";
+    cCursor.innerHTML = string;
+    cCursor.style.display = "block";
+    }
+}
+
+document.addEventListener('mousemove', (e) => {
+    cCursor.style.left = e.clientX + 'px';
+    cCursor.style.top = e.clientY + 'px';
+  });
