@@ -42,9 +42,9 @@ img {
 
 #darkmode {
     background-image: url(./img/moon.webp);
-    background-size: contain;
-    margin-right: 80%;
-    margin-bottom: 7.5%;
+    background-size: cover;
+    margin-right: 75%;
+    margin-bottom: 2%;
 }
 
 #levels {

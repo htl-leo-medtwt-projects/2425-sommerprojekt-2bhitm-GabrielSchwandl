@@ -165,7 +165,7 @@ function displayGame(i, difficulty) {
     content += `
         <div id="timer"></div>
         <img id="gameImage" src="./img/pic${i}.jpg" alt="level${i}"></img>
-        <div class="waldo" id="waldo${i}" onclick="vanish()"></div>
+        <div class="waldo" id="waldo${i}" onclick="waldoFound()"></div>
     `;
 
     overlay.innerHTML = content;
@@ -181,7 +181,7 @@ function vanish() {
 }
 
 function waldoFound() {
-    points = localStorage.getItem('points');
+    points = parseInt(localStorage.getItem('points'));
     points = points + 100;
     localStorage.setItem('points', points);
     vanish();
@@ -307,7 +307,6 @@ function showPoints() {
 
 function showCursor() {
     let isCursor = localStorage.getItem('isCursor');
-    console.log('cursa');
     if(isCursor) {
     let string = '';
     
