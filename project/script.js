@@ -10,6 +10,8 @@ let nav = document.getElementById('navId');
 let body = document.getElementsByTagName("body");
 let points = 0;
 let cCursor = document.getElementById('custom-cursor');
+let tutorial = document.getElementById('tutorial');
+let isRevealed;
 
 function showAllLevels() {
     if (lvls == null) {
@@ -52,7 +54,7 @@ function showShop() {
         } else if(i == 1) {
             string += `<h3>Minimalist Cursor</h3>
             <p>transforms the Cursor to look much simpler</p>
-            <div id="buy"><h3 onclick="buy(${i})">BUY- 200</h3></div>
+            <div id="buy"><h3 onclick="buy(${i})">BUY - 200</h3></div>
             `
         } else {
             string += `<h3>Maximalist Cursor</h3>
@@ -100,35 +102,38 @@ function login() {
     logIn.innerHTML = string;
 }
 
-function showTutorial(i) {
+function showTutorial() {
     if(overlay != null && backOverlay != null) {
-        
-    if(localStorage.getItem('isLogged') == 'false') {
-        content += `
+    let content = '';
+    
+    content += `
     <div class="reveal">
         <div class="slides">
 		    <section><h1>HOW TO PLAY</h1></section>
 		    <section><h2>look for Waldo. He looks like this:</h2> <img src="./img/Wally.png" alt="waldo" id="explanation"><h2>when you find him click on him</h2></section>
-            <section><h1 onclick="displayGame(${i})" id="ready">READY?</h1></section>
+            <section><h1 onclick="vanish()" id="ready">READY?</h1></section>
 	    </div>
     </div>
     `;
 
+    tutorial.style.display = 'none';
     overlay.innerHTML = content;
     overlay.style.display = "block";
     backOverlay.style.display = "block";
-        
-    Reveal.initialize({
+    if (isRevealed == false) {
+        Reveal.initialize({
         hash: true,
         
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
     });
     Reveal.initialize();
+    isRevealed = true;
     }
     
-    }
+    }  
 }
+
 
 function showLogIn() {
     if(logIn == null) {
@@ -212,7 +217,7 @@ function startTimer(difficulty, i) {
         countdownInterval = setInterval(() => {
         timer.innerHTML = `<h3>Time: ${timeLeft}</h3>`;
         timeLeft--;
-            if ( (timeLeft == 0 && difficulty == "easy")|| (timeLeft == 30 && difficulty == "medium")) {
+            if ((timeLeft == 0 && difficulty == "easy")|| (timeLeft == 30 && difficulty == "medium")) {
                 if(i == 1) {
                     alert("Waldo is a fan of cats");
                 } else if(i == 2) {
@@ -284,7 +289,7 @@ function showDifficulty(i) {
 
     </div>
     `;
-
+    tutorial.style.display = 'none';
     overlay.innerHTML = string;
     overlay.style.display = "block";
     backOverlay.style.display = "block";
