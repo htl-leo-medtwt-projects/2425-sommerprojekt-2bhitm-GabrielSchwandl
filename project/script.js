@@ -103,36 +103,38 @@ function login() {
 }
 
 function showTutorial() {
-    if(overlay != null && backOverlay != null) {
-    let content = '';
-    
-    content += `
-    <div class="reveal">
-        <div class="slides">
-		    <section><h1>HOW TO PLAY</h1></section>
-		    <section><h2>look for Waldo. He looks like this:</h2> <img src="./img/Wally.png" alt="waldo" id="explanation"><h2>when you find him click on him</h2></section>
-            <section><h1 onclick="vanish()" id="ready">READY?</h1></section>
-	    </div>
-    </div>
-    `;
+    if (overlay != null && backOverlay != null) {
+        let content = `
+        <div class="reveal">
+            <div class="slides">
+                <section><h1>HOW TO PLAY</h1></section>
+                <section>
+                    <h2>look for Waldo. He looks like this:</h2>
+                    <img src="./img/Wally.png" alt="waldo" id="explanation">
+                    <h2>when you find him click on him</h2>
+                </section>
+                <section><h1 onclick="vanish()" id="ready">READY?</h1></section>
+            </div>
+        </div>
+        `;
 
-    tutorial.style.display = 'none';
-    overlay.innerHTML = content;
-    overlay.style.display = "block";
-    backOverlay.style.display = "block";
-    if (isRevealed == false) {
-        Reveal.initialize({
-        hash: true,
-        
-        // Learn about plugins: https://revealjs.com/plugins/
-        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-    });
-    Reveal.initialize();
-    isRevealed = true;
+        tutorial.style.display = 'none';
+        overlay.innerHTML = content;
+        overlay.style.display = "block";
+        backOverlay.style.display = "block";
+
+        setTimeout(() => {
+            if (!isRevealed) {
+                Reveal.initialize({
+                    hash: true,
+                    plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+                });
+                isRevealed = true;
+            }
+        }, 0);
     }
-    
-    }  
 }
+
 
 
 function showLogIn() {
@@ -198,13 +200,10 @@ function startTimer(difficulty, i) {
     timer = document.getElementById('timer');
     console.log(`timer gestartet mit ${difficulty}`);
     let timeLeft;
-    let hints = false;
 
     if (difficulty == "easy") {
-        hints = true;
         timeLeft = 10;
     } else if (difficulty == "medium") {
-        hints = true;
         timeLeft = 60;
         timer.style.display = "block";
     } else if (difficulty == "hard") {
