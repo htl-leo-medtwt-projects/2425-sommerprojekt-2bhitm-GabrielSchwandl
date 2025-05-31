@@ -1,3 +1,15 @@
+@keyframes zoomInOut {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 :root {
     --color-main: #D83C3C;
     --color-darker: #b21919;
