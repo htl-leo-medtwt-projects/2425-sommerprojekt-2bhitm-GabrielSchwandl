@@ -228,22 +228,26 @@ function startTimer(difficulty, i) {
         countdownInterval = setInterval(() => {
         timer.innerHTML = `<h3>Time: ${timeLeft}</h3>`;
         timeLeft--;
-            if ((timeLeft == 0 && difficulty == "easy")|| (timeLeft == 30 && difficulty == "medium")) {
-                if(i == 1) {
-                    alert("Waldo is a fan of cats");
-                } else if(i == 2) {
-                    alert("Waldo is enjoying the view of a carriage");
-                } else if(i == 3) {
-                    alert("Waldo likes blocks and ships");
-                } else if(i == 4) {
-                    alert("Waldo is near a hut");
-                } else if(i == 5) {
-                    alert("Waldo hears gunshots");
-                } else {
-                    alert("Waldo smells delicious meals");
-                }
-                console.log("hint placed")
+            if ((timeLeft == 0 && difficulty == "easy") || (timeLeft == 30 && difficulty == "medium")) {
+        let hintText;
+            if(i == 1) {
+                hintText = "Waldo is a fan of cats";
+            } else if(i == 2) {
+                hintText = "Waldo is enjoying the view of a carriage";
+            } else if(i == 3) {
+                hintText = "Waldo likes blocks and ships";
+            } else if(i == 4) {
+                hintText = "Waldo is near a hut";
+            } else if(i == 5) {
+                hintText = "Waldo hears gunshots";
+            } else {
+                hintText = "Waldo smells delicious meals";
             }
+
+            showHint(hintText);
+            console.log("hint placed");
+        }
+
         if (timeLeft < 0) {
             clearInterval(countdownInterval);
             if(difficulty != "easy") {
@@ -253,6 +257,19 @@ function startTimer(difficulty, i) {
         }
     }, 1000);
 }
+
+function showHint(message) {
+    const hintDiv = document.createElement('div');
+    hintDiv.className = 'hintpopup';
+    hintDiv.textContent = message;
+
+    document.body.appendChild(hintDiv);
+
+    setTimeout(() => {
+        hintDiv.remove();
+    }, 4000);
+}
+
 
 function buy(i) {
     if (localStorage.getItem('points') < 200) {
