@@ -10,6 +10,41 @@
     }
 }
 
+#wineffect {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px 40px;
+    font-size: 24px;
+    border-radius: 10px;
+    z-index: 1000;
+    text-align: center;
+    box-shadow: 0 0 20px gold;
+    animation: fadeInOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    10% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+}
+
+
 :root {
     --color-main: #D83C3C;
     --color-darker: #b21919;

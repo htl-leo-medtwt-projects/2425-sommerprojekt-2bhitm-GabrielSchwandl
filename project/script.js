@@ -192,9 +192,21 @@ function waldoFound() {
     points = points + 100;
     localStorage.setItem('points', points);
     vanish();
+    showWinEffect();
 }
 
-let countdownInterval;
+function showWinEffect() {
+    const winDiv = document.createElement('div');
+    winDiv.id = 'wineffect';
+    winDiv.textContent = '🎉 You found Waldo! +100 points! 🎉';
+    document.body.appendChild(winDiv);
+
+    setTimeout(() => {
+        winDiv.remove();
+    }, 3000);
+}
+
+    let countdownInterval;
 
 function startTimer(difficulty, i) {
     timer = document.getElementById('timer');
