@@ -435,3 +435,36 @@ h4 {
         grid-template-columns: auto;
     }
 }
+
+@media (max-width: 892px) {
+    body {
+        overflow: visible;
+    }
+
+    img {
+        width: 50%;
+        height: 7vh;
+    }
+
+    #darkmode {
+        margin-right: 0%;
+        margin-left: -55%;
+        margin-bottom: 2%;
+    }
+
+    .pics {
+        grid-template-columns: auto;
+    }
+
+    #shop {
+        grid-template-columns: auto;
+    }
+
+    .card {
+        width: 60%;
+    }
+
+    .custom-cursor {
+        cursor: none;
+    }
+}
