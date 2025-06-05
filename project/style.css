@@ -119,6 +119,7 @@ img {
     margin-right: 75%;
     margin-bottom: 2%;
     transition: scale, 0.5s;
+    cursor: pointer;
 }
 
 #darkmode:hover {

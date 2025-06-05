@@ -72,8 +72,16 @@ function showShop() {
 }
 
 function goingDark() {
-    root.style.setProperty('--color-bg', '#2E2E2E');
-    root.style.setProperty('--color-border', '#000000');
+    if(localStorage.getItem('darkmode') == 'true') {
+        root.style.setProperty('--color-bg', '#ffffff');
+        root.style.setProperty('--color-border', '#2E2E2E');
+        localStorage.setItem('darkmode', false);
+    } else {
+        root.style.setProperty('--color-bg', '#2E2E2E');
+        root.style.setProperty('--color-border', '#000000');
+        localStorage.setItem('darkmode', true);
+    }
+    
 }
 
 function login() {
@@ -97,9 +105,22 @@ function login() {
     
     string += `
     <h3>Points: ${points}</h3>
+    <button id="loginButton" onclick="logOut()">Log Out</button>
     `
 
     logIn.innerHTML = string;
+}
+
+function logOut() {
+        localStorage.setItem('username', '');
+        localStorage.setItem('password', '');
+        localStorage.setItem('points', 0);
+        localStorage.setItem('isLogged', false);
+        localStorage.setItem('isCursor', false);
+        localStorage.setItem('cursorImg', '')
+        showLogIn();
+        showCursor();
+        document.body.style.cursor = "auto";
 }
 
 function showTutorial() {
@@ -156,6 +177,7 @@ function showLogIn() {
             points = localStorage.getItem('points');
             string += `
             <h3>Points: ${points}</h3>
+            <button id="loginButton" onclick="logOut()">Log Out</button>
             `
 
             logIn.innerHTML = string;
